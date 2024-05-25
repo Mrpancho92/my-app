@@ -11,10 +11,11 @@ import { Optional } from "utility-types";
 type AppointmentsProps = Optional<IAppointment, 'canceled'> & {
 	openModal: (state: number) => void;
 	getActiveAppointments?: () => void;
+	loadHistory: boolean
 	// selectId: () => void;
 }
 
-const AppointmentItem = memo(({id, date, name, service, phone, canceled, openModal, getActiveAppointments}: AppointmentsProps) => {
+const AppointmentItem = memo(({id, date, name, service, phone, canceled, openModal, getActiveAppointments, loadHistory}: AppointmentsProps) => {
 	const [timeLeft, changeTimeLeft] = useState<string | null>(null);
 	useEffect(() => {
 		changeTimeLeft(`${dayjs(date).diff(undefined, "h")}:${dayjs(date).diff(undefined, "m") % 60}`);
@@ -44,14 +45,13 @@ const AppointmentItem = memo(({id, date, name, service, phone, canceled, openMod
 			</div>
 			{!canceled ? (
 				<>
+				{!loadHistory ?
 					<div className="appointment__time">
 						<span>Time left:</span>
 						<span className="appointment__timer">{timeLeft}</span>
-					</div>
-					<button className="appointment__cancel" 
-					onClick={() => {
-						openModal(id);
-					}}>Cancel</button>
+					</div> : null}
+
+				{!loadHistory ?<button className="appointment__cancel" onClick={() => {openModal(id)}}>Cancel</button> : null}
 				</>
 			) : null}
 			{canceled ? <div className="appointment__canceled">Canceled</div> : null}

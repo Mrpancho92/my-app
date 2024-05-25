@@ -2,7 +2,7 @@
   "appointments": [
     {
       "id": "1",
-      "date": "2024-05-20T21:20",
+      "date": "2024-05-25T21:20",
       "name": "Alex Smith",
       "service": "Manicure",
       "phone": "+1 948 945 344",
@@ -10,11 +10,11 @@
     },
     {
       "id": "2",
-      "date": "2024-06-01T15:15",
+      "date": "2024-05-28T15:15",
       "name": "Sam Smith",
       "service": "Pedicure",
       "phone": "+1 746 235 890",
-      "canceled": true
+      "canceled": false
     },
     {
       "id": "3",
@@ -55,54 +55,6 @@
       "service": "Beard",
       "phone": "+1 333 835 438",
       "canceled": true
-    },
-    {
-      "id": "1716288918807",
-      "name": "Павел",
-      "service": "ddedefe",
-      "phone": "+7 909 932 27 25",
-      "date": "2024-11-22T15:00",
-      "canceled": true
-    },
-    {
-      "id": "1716289559164",
-      "name": "dferferfe",
-      "service": "gergergeg",
-      "phone": "+7 909 932 27 25",
-      "date": "2024-10-22T15:00",
-      "canceled": true
-    },
-    {
-      "id": "1716289887158",
-      "name": "qwerty",
-      "service": "dwqdqwdqf",
-      "phone": "+7 909 932 27 25",
-      "date": "2024-07-25T14:00",
-      "canceled": false
-    },
-    {
-      "id": "1716291644940",
-      "name": "qwerty",
-      "service": "ddsfggsdfgdf",
-      "phone": "+7 909 932 725",
-      "date": "2024-05-08T16:00",
-      "canceled": false
-    },
-    {
-      "id": "1716291669956",
-      "name": "Павел",
-      "service": "dwfwgferg",
-      "phone": "+7 909 932 272",
-      "date": "2024-05-25T16:00",
-      "canceled": false
-    },
-    {
-      "id": 1716291980499,
-      "name": "Павел",
-      "service": "fwfewferg",
-      "phone": "+7 909 932 272",
-      "date": "2024-05-30T13:00",
-      "canceled": false
     }
   ]
 }

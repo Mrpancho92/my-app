@@ -9,7 +9,7 @@ import { AppointmentContext } from "../../context/appointments/AppointmentsConte
 
 
 function AppointmentList() {
-	const {activeAppointments, getActiveAppointments, appointmentloadingStatus} = useContext(AppointmentContext);
+	const {activeAppointments, getActiveAppointments, appointmentloadingStatus, calendarDate} = useContext(AppointmentContext);
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedId, selectId] = useState(0);
 
@@ -17,7 +17,7 @@ function AppointmentList() {
 	useEffect(() => {
 		getActiveAppointments();
 		console.log('getActiveAppointments');
-	}, []);
+	}, [calendarDate]);
 
 
 	const handleOpenModal = useCallback((id: number) => {
@@ -30,7 +30,16 @@ function AppointmentList() {
 	} else if (appointmentloadingStatus === 'error') {
 		return (
 			<>
-				<Error/>
+				<Error msg={appointmentloadingStatus} 
+				version="1.1"
+				viewBox="0 0 499.973 391.157"
+				xmlns="http://www.w3.org/2000/svg"
+				style={{
+				width: "100px",
+				height: "100px",
+				display: "block",
+				margin: "0 auto",
+			}}/>
 				<button className="schedule__reload" onClick={getActiveAppointments}>
 					Try to reload
 				</button>
@@ -45,10 +54,14 @@ function AppointmentList() {
 				{...item} 
 				key={item.id} 
 				openModal={handleOpenModal} 
+				loadHistory = {false}
 				getActiveAppointments={getActiveAppointments}
 				/>;
 			})}
 			<CancelModal handleClose={setIsOpen} selectedId={selectedId} isOpen={isOpen}/>
+			{activeAppointments.length === 0 ? (
+				<h2 className="no-data">No data to display</h2>
+			) : null}
 		</>
 	);
 }

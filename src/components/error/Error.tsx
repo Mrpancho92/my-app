@@ -1,15 +1,14 @@
-function Error() {
+import { ComponentProps } from "react";
+interface ErrorProps extends ComponentProps<"svg"> {
+	msg?: string;
+}
+
+function Error(props: ErrorProps) {
+	const {msg, ...rest} = props;
+	console.log(msg);
 	return (
 		<svg
-			version="1.1"
-			viewBox="0 0 499.973 391.157"
-			xmlns="http://www.w3.org/2000/svg"
-			style={{
-				width: "100px",
-				height: "100px",
-				display: "block",
-				margin: "0 auto",
-			}}
+			{...rest}
 		>
 			<g id="cloud-rejected">
 				<g id="cloud-rejected_1_">
